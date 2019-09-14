@@ -3,4 +3,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_map">Map</string>
     <string name="title_qr_code">QR</string>
+
+    <!--map-->
+    <string name="no_restaurants_loaded">There is no restaurants in your location, sorry.</string>
 </resources>

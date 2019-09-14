@@ -32,3 +32,5 @@ fun AppCompatActivity.replaceFragment(
     @IdRes containerViewId: Int,
     fragment: Fragment,
     tag: String) = supportFragmentManager.changeFragment(containerViewId, fragment, tag)
+
+

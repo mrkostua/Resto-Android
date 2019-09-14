@@ -2,6 +2,7 @@ package com.example.resto.ui.main.fragments.map
 
 
 import android.location.Location
+import com.example.resto.data.repositories.RestaurantsRepository
 import com.example.resto.ui.BaseFragmentPresenter
 import com.example.resto.util.managers.LocationManager
 import com.example.resto.util.managers.LocationManagerImpl
@@ -10,7 +11,10 @@ import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 import javax.inject.Inject
 
-class MapFragmentPresenter @Inject constructor(private val mLocationManager: LocationManager) :
+class MapFragmentPresenter @Inject constructor(
+    private val mLocationManager: LocationManager,
+    private val mRestaurantsRepository: RestaurantsRepository
+) :
     BaseFragmentPresenter<MapFragmentContract.View>(),
     MapFragmentContract.Presenter, LocationManagerImpl.LocationManagerInterface {
 
@@ -34,6 +38,7 @@ class MapFragmentPresenter @Inject constructor(private val mLocationManager: Loc
 
     override fun onMapReady() {
         view?.showProgress()
+        loadRestaurantsMarkersOnMap()
     }
 
     override fun onResumed() {
@@ -99,6 +104,22 @@ class MapFragmentPresenter @Inject constructor(private val mLocationManager: Loc
         } else {
             mLocationManager.connect()
         }
+    }
+
+    private fun loadRestaurantsMarkersOnMap() {
+        compositeDisposable.add(
+            mRestaurantsRepository.getAllRestaurants()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ restaurants ->
+                    view?.drawRestaurantsMarkersOnMap(restaurants)
+                    view?.hideProgress()
+                }, { error ->
+                    view?.hideProgress()
+                    view?.showPopupNoRestaurants()
+                    Timber.e(error)
+                })
+        )
     }
 
     //endregion

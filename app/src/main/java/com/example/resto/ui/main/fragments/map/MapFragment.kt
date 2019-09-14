@@ -1,6 +1,7 @@
 package com.example.resto.ui.main.fragments.map
 
 import android.Manifest
+import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import com.example.resto.R
@@ -8,13 +9,15 @@ import android.graphics.Canvas
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
+import com.example.resto.data.RestaurantModel
 import com.example.resto.ui.BaseFragment
 import com.example.resto.util.config.REQUEST_CHECK_PERMISSIONS
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.*
 import kotlinx.android.synthetic.main.fragment_map.*
-
+import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject
+
 
 class MapFragment : BaseFragment(), MapFragmentContract.View,
     OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
@@ -95,12 +98,33 @@ class MapFragment : BaseFragment(), MapFragmentContract.View,
     //region view
     override fun centerOnUser(lat: Double, lon: Double) {
         if (locationMarker == null) {
-            locationMarkerOptions = MarkerOptions().position(LatLng(lat, lon)).icon(getPinAsBitmap())
+            locationMarkerOptions = MarkerOptions().position(LatLng(lat, lon))
             locationMarker = mMap.addMarker(locationMarkerOptions)
         } else {
             locationMarker!!.position = LatLng(lat, lon)
         }
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(lat, lon), initialZoomLevel))
+    }
+
+    override fun drawRestaurantsMarkersOnMap(restaurants: List<RestaurantModel>) {
+        restaurants.forEach {
+            val marker = MarkerOptions()
+                .position(LatLng(it.location.latitude, it.location.longitude))
+                .title(it.title)
+            context?.let { notEmptyContext ->
+                marker.icon(
+                    bitmapDescriptorFromVector(
+                        notEmptyContext,
+                        R.drawable.ic_restaurant
+                    )
+                )
+            }
+            mMap.addMarker(marker).tag = it.id
+        }
+    }
+
+    override fun showPopupNoRestaurants() {
+        toast(R.string.no_restaurants_loaded)
     }
     //endregion
 
@@ -141,15 +165,13 @@ class MapFragment : BaseFragment(), MapFragmentContract.View,
         }
     }
 
-    private fun getPinAsBitmap(): BitmapDescriptor {
-        val myLocationPin = ContextCompat.getDrawable(context!!, R.drawable.location_marker)
-        myLocationPin!!.setBounds(0, 0, myLocationPin.intrinsicWidth - 15, myLocationPin.intrinsicHeight - 15)
-        val pinBitmap =
-            Bitmap.createBitmap(myLocationPin.intrinsicWidth, myLocationPin.intrinsicWidth, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(pinBitmap)
-        myLocationPin.draw(canvas)
-        return BitmapDescriptorFactory.fromBitmap(pinBitmap)
+    private fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
+        return ContextCompat.getDrawable(context, vectorResId)?.run {
+            setBounds(0, 0, intrinsicWidth, intrinsicHeight)
+            val bitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
+            draw(Canvas(bitmap))
+            BitmapDescriptorFactory.fromBitmap(bitmap)
+        }
     }
-
     //endregion
 }

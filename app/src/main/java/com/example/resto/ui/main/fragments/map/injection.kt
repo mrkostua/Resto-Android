@@ -1,5 +1,7 @@
 package com.example.resto.ui.main.fragments.map
 
+import com.example.resto.data.repositories.RestaurantsRepository
+import com.example.resto.data.repositories.RestaurantsRepositoryImp
 import com.example.resto.util.injection.scope.PerFragment
 import com.example.resto.util.managers.LocationManager
 import dagger.Binds
@@ -16,4 +18,8 @@ abstract class MapFragmentModule {
     @Binds
     @PerFragment
     abstract fun provideLocationManager(managerImpl: LocationManagerImpl): LocationManager
+
+    @Binds
+    @PerFragment
+    abstract fun provideRestaurantsRepository(restaurantsRepository: RestaurantsRepositoryImp): RestaurantsRepository
 }
