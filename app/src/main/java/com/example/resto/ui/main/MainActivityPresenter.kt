@@ -6,6 +6,11 @@ import javax.inject.Inject
 class MainActivityPresenter @Inject constructor() : BasePresenter<MainActivityContract.View>(),
     MainActivityContract.Presenter {
 
+    override fun attachView(view: MainActivityContract.View) {
+        super.attachView(view)
+        view.checkPermissions()
+    }
+
     override fun onNavigationDashboardClicked() {
         view?.navigateToDashboard()
     }
@@ -18,4 +23,9 @@ class MainActivityPresenter @Inject constructor() : BasePresenter<MainActivityCo
         view?.navigateToQrCode()
     }
 
+    override fun onPermissionsChecked(permissions: List<String>) {
+        when {
+            permissions.isNotEmpty() -> view?.requestPermissions(permissions)
+        }
+    }
 }

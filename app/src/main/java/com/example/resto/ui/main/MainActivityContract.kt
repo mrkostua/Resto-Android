@@ -7,11 +7,14 @@ interface MainActivityContract {
         fun navigateToMap()
         fun navigateToDashboard()
         fun navigateToQrCode()
+        fun checkPermissions()
+        fun requestPermissions(permissions: List<String>)
     }
 
     interface Presenter : BaseActivityContract.Presenter<View> {
         fun onNavigationDashboardClicked()
         fun onNavigationMapClicked()
         fun onNavigationQrCodeClicked()
+        fun onPermissionsChecked(permissions: List<String>)
     }
 }

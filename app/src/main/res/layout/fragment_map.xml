@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        style="@style/Match">
+
+    <include layout="@layout/guideline"/>
+
+    <com.google.android.gms.maps.MapView
+            android:id="@+id/mapMv"
+            map:layout_constraintTop_toTopOf="parent"
+            map:layout_constraintStart_toStartOf="parent"
+            map:layout_constraintBottom_toBottomOf="parent"
+            map:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    <ImageButton
+            android:id="@+id/xLocationButton"
+            android:layout_width="@dimen/button_radius"
+            android:layout_height="@dimen/button_radius"
+            android:background="@drawable/bg_map_locate_button"
+            android:src="@drawable/ic_locate_user_b"
+            android:padding="@dimen/padding_small"
+            android:clickable="true"
+            android:focusable="true"
+            map:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_medium"
+            map:layout_constraintBottom_toTopOf="@+id/xCarInfoFrame"/>
+
+    <FrameLayout
+            android:id="@+id/xCarInfoFrame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            map:layout_constraintBottom_toBottomOf="parent"
+            map:layout_constraintEnd_toEndOf="parent"
+            map:layout_constraintStart_toStartOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

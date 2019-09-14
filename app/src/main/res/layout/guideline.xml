@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_02"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.02"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_05"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.05"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_09"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.09"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_10"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.1"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_14"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.14"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_15"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.15"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_20"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.2"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_22"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.22"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_25"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.25"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_30"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.3"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_33"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.33"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_35"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.35"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_40"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.4"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_45"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.45"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_50"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.5"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_55"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.55"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_60"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.6"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_65"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.65"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_66"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.66"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_70"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.7"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_75"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.75"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_80"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.8"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_85"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.85"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_90"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.9"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_95"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.95"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_98"
+            style="@style/GuidelineHorizontal"
+            app:layout_constraintGuide_percent="0.98"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_05"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.05"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_10"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.1"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_15"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.15"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_20"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.20"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_25"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.25"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_30"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.30"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_35"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.35"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_40"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.40"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_45"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.45"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_48"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.48"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_49"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.49"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_50"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.5"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_51"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.51"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_52"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.52"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_55"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.55"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_59"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.59"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_60"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.6"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_65"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.65"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_70"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.7"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_75"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.75"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_80"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.8"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_85"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.85"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_90"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.9"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_95"
+            style="@style/GuidelineVertical"
+            app:layout_constraintGuide_percent="0.95"/>
+
+</merge>
