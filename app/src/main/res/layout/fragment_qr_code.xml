@@ -1,7 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/white">
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/qrCodeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/qr_code_toolbar_title"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/qrCodeInstructionTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:text="@string/qr_code_instruction"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/text_size_large"
+        app:layout_constraintEnd_toEndOf="@id/qrCodeHowToTv"
+        app:layout_constraintStart_toStartOf="@id/qrCodeHowToTv"
+        app:layout_constraintTop_toBottomOf="@id/qrCodeHowToTv" />
+
+    <ImageButton
+        android:id="@+id/scanButtonTv"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:background="@drawable/bg_circle_primary_dark"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:stateListAnimator="@drawable/selector_click_elevation"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_xlarge"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/qrCodeAskForPersonalTv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qrCodeInstructionTv" />
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:elevation="15dp"
+        android:src="@drawable/ic_qr_code_black"
+        app:layout_constraintBottom_toBottomOf="@id/scanButtonTv"
+        app:layout_constraintEnd_toEndOf="@id/scanButtonTv"
+        app:layout_constraintStart_toStartOf="@id/scanButtonTv"
+        app:layout_constraintTop_toTopOf="@+id/scanButtonTv" />
+
+    <TextView
+        android:id="@+id/qrCodeHowToTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_large"
+        android:text="@string/qr_code_instruction_title"
+        android:textColor="@color/textColorTitle"
+        android:textSize="@dimen/text_size_xlarge"
+        app:layout_constraintTop_toBottomOf="@id/qrCodeTitle" />
+
+    <TextView
+        android:id="@+id/qrCodeAskForPersonalTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:gravity="center"
+        android:text="@string/qr_code_no_personal_to_scan"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

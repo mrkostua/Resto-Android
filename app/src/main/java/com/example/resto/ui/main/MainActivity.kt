@@ -28,7 +28,8 @@ class MainActivity : BaseActivity(), MainActivityContract.View {
     override fun init() {
         super.init()
         mPresenter.attachView(this)
-
+        bottomNavigationBnb.selectedItemId = R.id.navigation_map
+        navigateToMap()
         bottomNavigationBnb.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
     //endregion
@@ -50,30 +51,30 @@ class MainActivity : BaseActivity(), MainActivityContract.View {
     override fun checkPermissions() {
         val permissions = ArrayList<String>()
         if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
+                        this,
+                        Manifest.permission.ACCESS_FINE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED
         ) {
             permissions.add(Manifest.permission.ACCESS_FINE_LOCATION)
         }
         if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ) != PackageManager.PERMISSION_GRANTED
+                        this,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
         ) {
             permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
         if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.CAMERA
-            ) != PackageManager.PERMISSION_GRANTED
+                        this,
+                        Manifest.permission.CAMERA
+                ) != PackageManager.PERMISSION_GRANTED
         ) {
             permissions.add(Manifest.permission.CAMERA)
         }
         if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.CALL_PHONE
-            ) != PackageManager.PERMISSION_GRANTED
+                        this,
+                        Manifest.permission.CALL_PHONE
+                ) != PackageManager.PERMISSION_GRANTED
         ) {
             permissions.add(Manifest.permission.CALL_PHONE)
         }

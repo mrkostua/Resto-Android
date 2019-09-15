@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    <color name="textColor">#8B8B8B</color>
+    <color name="textColorTitle">#616161</color>
+
     <color name="white">#ffffff</color>
     <color name="statusBar">#4D404040</color>
 </resources>
