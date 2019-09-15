@@ -2,6 +2,7 @@ package com.example.resto.ui.main.fragments.map
 
 
 import android.location.Location
+import com.example.resto.data.RestaurantModel
 import com.example.resto.data.repositories.RestaurantsRepository
 import com.example.resto.ui.BaseFragmentPresenter
 import com.example.resto.util.managers.LocationManager
@@ -19,6 +20,8 @@ class MapFragmentPresenter @Inject constructor(
     MapFragmentContract.Presenter, LocationManagerImpl.LocationManagerInterface {
 
     private var mLastUserLocation: Location? = null
+    private var mRestaurants: List<RestaurantModel>? = null
+
 
     override fun attachView(view: MapFragmentContract.View) {
         super.attachView(view)
@@ -48,6 +51,15 @@ class MapFragmentPresenter @Inject constructor(
     override fun onPaused() {
         mLocationManager.stopLocationUpdates()
     }
+
+    override fun onRestaurantMarkerClicked(restaurantMakerId: Int) {
+        val clickedRestaurant = getRestaurantById(restaurantMakerId)
+        if (clickedRestaurant != null) {
+            view?.showDialogRestaurantMiniInfo(clickedRestaurant)
+        } else {
+            view?.showPopupNoDataFoundAboutMarker()
+        }
+    }
     //endregion
 
     //region location manager interface methods
@@ -67,6 +79,10 @@ class MapFragmentPresenter @Inject constructor(
         if (isOn) {
             mLocationManager.startLocationUpdates()
         }
+    }
+
+    override fun onActionButtonRestaurantDialogClicked(clickedRestaurant: RestaurantModel) {
+        //TODO go Reservation (this part developed by Max)
     }
     // endregion
 
@@ -113,6 +129,7 @@ class MapFragmentPresenter @Inject constructor(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ restaurants ->
                     view?.drawRestaurantsMarkersOnMap(restaurants)
+                    mRestaurants = restaurants
                     view?.hideProgress()
                 }, { error ->
                     view?.hideProgress()
@@ -121,6 +138,11 @@ class MapFragmentPresenter @Inject constructor(
                 })
         )
     }
+
+    private fun getRestaurantById(id: Int): RestaurantModel? {
+        return mRestaurants?.find { it.id == id }
+    }
+
 
     //endregion
 }

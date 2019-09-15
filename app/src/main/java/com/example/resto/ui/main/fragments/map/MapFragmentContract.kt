@@ -8,6 +8,8 @@ interface MapFragmentContract {
         fun centerOnUser(lat: Double, lon: Double)
         fun drawRestaurantsMarkersOnMap(restaurants: List<RestaurantModel>)
         fun showPopupNoRestaurants()
+        fun showPopupNoDataFoundAboutMarker()
+        fun showDialogRestaurantMiniInfo(clickedRestaurant: RestaurantModel)
     }
 
 
@@ -16,5 +18,7 @@ interface MapFragmentContract {
         fun onPaused()
         fun onLocationButtonClicked()
         fun onMapReady()
+        fun onRestaurantMarkerClicked(restaurantMakerId: Int)
+        fun onActionButtonRestaurantDialogClicked(clickedRestaurant: RestaurantModel)
     }
 }

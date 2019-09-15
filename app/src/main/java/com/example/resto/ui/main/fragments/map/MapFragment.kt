@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import com.example.resto.data.RestaurantModel
 import com.example.resto.ui.BaseFragment
 import com.example.resto.util.config.REQUEST_CHECK_PERMISSIONS
+import com.example.resto.util.views.SimplePopupDialog
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.*
 import kotlinx.android.synthetic.main.fragment_map.*
@@ -80,8 +81,6 @@ class MapFragment : BaseFragment(), MapFragmentContract.View,
         mPresenter.onMapReady()
 
         mMap.setOnMarkerClickListener(this)
-/*        val customInfoWindow = context?.let { CustomInfoWindow(it) }
-        mMap.setInfoWindowAdapter(customInfoWindow)*/
 
         val polandLatLng = LatLng(50.076028, 19.929025)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(polandLatLng, 15F))
@@ -90,6 +89,11 @@ class MapFragment : BaseFragment(), MapFragmentContract.View,
 
     override fun onMarkerClick(marker: Marker?): Boolean {
         checkPermissions()
+        marker?.tag?.let { id ->
+            if (id is Int) {
+                mPresenter.onRestaurantMarkerClicked(id)
+            }
+        }
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker?.position, initialZoomLevel))
         return true
     }
@@ -99,9 +103,17 @@ class MapFragment : BaseFragment(), MapFragmentContract.View,
     override fun centerOnUser(lat: Double, lon: Double) {
         if (locationMarker == null) {
             locationMarkerOptions = MarkerOptions().position(LatLng(lat, lon))
+            context?.let { notEmptyContext ->
+                locationMarkerOptions?.icon(
+                    bitmapDescriptorFromVector(
+                        notEmptyContext,
+                        R.drawable.location_marker
+                    )
+                )
+            }
             locationMarker = mMap.addMarker(locationMarkerOptions)
         } else {
-            locationMarker!!.position = LatLng(lat, lon)
+            locationMarker?.position = LatLng(lat, lon)
         }
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(lat, lon), initialZoomLevel))
     }
@@ -121,6 +133,32 @@ class MapFragment : BaseFragment(), MapFragmentContract.View,
             }
             mMap.addMarker(marker).tag = it.id
         }
+    }
+
+    override fun showDialogRestaurantMiniInfo(clickedRestaurant: RestaurantModel) {
+        val restaurantPopup = SimplePopupDialog().apply {
+            listener = object : SimplePopupDialog.SimplePopupListeners {
+                override fun onActionButton() {
+                    mPresenter.onActionButtonRestaurantDialogClicked(clickedRestaurant)
+                }
+
+                override fun onCancel() {
+                    dismiss()
+                }
+            }
+        }
+        fragmentManager?.let {
+            restaurantPopup.initAndShowDialog(
+                it,
+                actionButtonName = resources.getString(R.string.map_restaurant_popup_action_button_title),
+                dialogTitle = clickedRestaurant.title,
+                message = clickedRestaurant.details
+            )
+        }
+    }
+
+    override fun showPopupNoDataFoundAboutMarker() {
+        toast(R.string.map_restaurant_clicked_no_info_found)
     }
 
     override fun showPopupNoRestaurants() {

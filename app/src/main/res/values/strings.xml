@@ -6,4 +6,10 @@
 
     <!--map-->
     <string name="no_restaurants_loaded">There is no restaurants in your location, sorry.</string>
+    <string name="map_restaurant_clicked_no_info_found">Chosen restaurant doesn\'t contains additional information
+    </string>
+    <string name="map_restaurant_popup_action_button_title">Reserve</string>
+
+    <!--simple dialog popup-->
+    <string name="popup_dialog_action_button_default_text">OK</string>
 </resources>
