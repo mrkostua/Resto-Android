@@ -82,7 +82,7 @@ class MapFragmentPresenter @Inject constructor(
     }
 
     override fun onActionButtonRestaurantDialogClicked(clickedRestaurant: RestaurantModel) {
-        //TODO go Reservation (this part developed by Max)
+        view?.navigateToReservationActivity()
     }
     // endregion
 

@@ -16,7 +16,9 @@
     <!--qr code-->
     <string name="qr_code_toolbar_title">Scan QR code</string>
     <string name="qr_code_button_scan_title">SCAN</string>
-    <string name="qr_code_instruction">To check menu and start ordering just scan a QR code from a personal in restaurant :) </string>
+    <string name="qr_code_instruction">To check menu and start ordering just scan a QR code from a personal in
+        restaurant :)
+    </string>
     <string name="qr_code_instruction_title">How to?</string>
     <string name="qr_code_no_personal_to_scan">Personal is not here?</string>
 </resources>

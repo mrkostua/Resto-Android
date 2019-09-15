@@ -10,6 +10,7 @@ interface MapFragmentContract {
         fun showPopupNoRestaurants()
         fun showPopupNoDataFoundAboutMarker()
         fun showDialogRestaurantMiniInfo(clickedRestaurant: RestaurantModel)
+        fun navigateToReservationActivity()
     }
 
 

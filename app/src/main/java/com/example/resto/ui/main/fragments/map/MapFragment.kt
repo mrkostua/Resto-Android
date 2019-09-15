@@ -2,6 +2,7 @@ package com.example.resto.ui.main.fragments.map
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import com.example.resto.R
@@ -11,6 +12,7 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.example.resto.data.RestaurantModel
 import com.example.resto.ui.BaseFragment
+import com.example.resto.ui.reservation.ReservationActivity
 import com.example.resto.util.config.REQUEST_CHECK_PERMISSIONS
 import com.example.resto.util.views.SimplePopupDialog
 import com.google.android.gms.maps.*
@@ -163,6 +165,10 @@ class MapFragment : BaseFragment(), MapFragmentContract.View,
 
     override fun showPopupNoRestaurants() {
         toast(R.string.no_restaurants_loaded)
+    }
+
+    override fun navigateToReservationActivity() {
+        startActivity(Intent(context!!, ReservationActivity::class.java))
     }
     //endregion
 
